@@ -13,7 +13,7 @@
  on: 
    push:
      branches:
-       - 'improve-github-actions'
+       - 'main'
      tags:
        - 'v*' 
   
