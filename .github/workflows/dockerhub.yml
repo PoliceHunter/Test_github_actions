@@ -44,7 +44,6 @@
          with: 
            images: danielsdv/debridge
            tags: |
-             type=ref,event=tag
              type=raw,value={{tag}}-{{sha}}
 
        -  
@@ -63,7 +62,7 @@
            context: .
            file: Dockerfile
            push: true
-           build-args: arg1=lima,arg2=tyrol,arg3=prod
+           build-args: arg1=lima
            tags: ${{ steps.metadata.outputs.tags }}-lima
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
@@ -75,7 +74,7 @@
            context: .
            file: Dockerfile
            push: true
-           build-args: arg1=lima,arg2=tyrol,arg3=prod
+           build-args: arg1=tyrol
            tags: ${{ steps.metadata.outputs.tags }}-tyrol
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
@@ -87,7 +86,7 @@
            context: .
            file: Dockerfile
            push: true
-           build-args: arg1=lima,arg2=tyrol,arg3=prod
+           build-args: arg1=prod
            tags: ${{ steps.metadata.outputs.tags }}-prod
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
