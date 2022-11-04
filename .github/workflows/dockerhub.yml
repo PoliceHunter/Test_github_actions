@@ -44,7 +44,7 @@
          with: 
            images: danielsdv/debridge
            tags: |
-             type=raw,value={{tag}}-{{sha}}
+             type=raw,value={{tag}}.d{{sha}}
 
        -  
          name: Checkout 
