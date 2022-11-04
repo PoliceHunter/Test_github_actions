@@ -58,7 +58,7 @@
          uses: docker/build-push-action@v3 
          with: 
            context: .
-           file: .docker/Dockerfile
+           file: Dockerfile
            push: true
            build-args: arg1=lima,arg2=tyrol,arg3=prod
            tags: ${{ steps.metadata.outputs.tags }} 
