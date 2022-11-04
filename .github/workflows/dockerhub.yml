@@ -60,7 +60,7 @@
            context: .
            file: .docker/Dockerfile
            push: true
-           build_args: arg1=lima,arg2=tyrol,arg3=prod
+           build-args: arg1=lima,arg2=tyrol,arg3=prod
            tags: ${{ steps.metadata.outputs.tags }} 
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
