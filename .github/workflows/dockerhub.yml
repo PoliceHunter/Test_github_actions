@@ -64,7 +64,7 @@
            file: Dockerfile
            push: true
            build-args: arg1=lima,arg2=tyrol,arg3=prod
-           tags: ${{ steps.metadata.outputs.tags }}-${{LIMA}}
+           tags: ${{ steps.metadata.outputs.tags }}-lima
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
              default=${{ env.SSH_AUTH_SOCK }}
@@ -76,7 +76,7 @@
            file: Dockerfile
            push: true
            build-args: arg1=lima,arg2=tyrol,arg3=prod
-           tags: ${{ steps.metadata.outputs.tags }}-${{TYROL}}
+           tags: ${{ steps.metadata.outputs.tags }}-tyrol
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
              default=${{ env.SSH_AUTH_SOCK }}
@@ -88,7 +88,7 @@
            file: Dockerfile
            push: true
            build-args: arg1=lima,arg2=tyrol,arg3=prod
-           tags: ${{ steps.metadata.outputs.tags }}-${{PROD}}
+           tags: ${{ steps.metadata.outputs.tags }}-prod
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
              default=${{ env.SSH_AUTH_SOCK }}
