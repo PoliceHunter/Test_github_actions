@@ -42,7 +42,7 @@
          with: 
            images: danielsdv/debridge
            tags: |
-             type=raw,value={{tag}}-{{sha}}--
+             type=raw,value={{tag}}-{{sha}}
 
        -  
          name: Checkout 
@@ -65,5 +65,4 @@
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
              default=${{ env.SSH_AUTH_SOCK }}
-           secret-files: LIMA_FILE=./.env.mainnet.lima
 
