@@ -8,6 +8,8 @@
    DOCKER_HUB_IMAGE_NAME: pmm-solana-event-reader 
    DOCKER_HUB_ORGANIZATION: debridgefinance 
    LIMA: lima
+   TYROL: tyrol
+   PROD: prod
 
  # Triggers 
  on: 
@@ -55,15 +57,40 @@
            ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
        - 
-         name: Build and push 
+         name: Build and push LIMA 
          uses: docker/build-push-action@v3 
          with: 
            context: .
            file: Dockerfile
            push: true
            build-args: arg1=lima,arg2=tyrol,arg3=prod
-           tags: ${{ steps.metadata.outputs.tags }} 
+           tags: ${{ steps.metadata.outputs.tags }}-${{LIMA}}
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
              default=${{ env.SSH_AUTH_SOCK }}
+       - 
+         name: Build and push TYROL
+         uses: docker/build-push-action@v3 
+         with: 
+           context: .
+           file: Dockerfile
+           push: true
+           build-args: arg1=lima,arg2=tyrol,arg3=prod
+           tags: ${{ steps.metadata.outputs.tags }}-${{TYROL}}
+           labels: ${{ steps.metadata.outputs.labels }}
+           ssh: |
+             default=${{ env.SSH_AUTH_SOCK }}
+       - 
+         name: Build and push PROD
+         uses: docker/build-push-action@v3 
+         with: 
+           context: .
+           file: Dockerfile
+           push: true
+           build-args: arg1=lima,arg2=tyrol,arg3=prod
+           tags: ${{ steps.metadata.outputs.tags }}-${{PROD}}
+           labels: ${{ steps.metadata.outputs.labels }}
+           ssh: |
+             default=${{ env.SSH_AUTH_SOCK }}
+
 
