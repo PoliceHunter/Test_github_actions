@@ -19,24 +19,8 @@
   
  jobs: 
   
- # Hadolint checking 
-   docker-test: 
-     runs-on: ubuntu-latest 
-     steps:  
-     -  
-       name: Checkout 
-       uses: actions/checkout@v2
-     - 
-       name: Linter
-       uses: hadolint/hadolint-action@v2.0.0
-       with:
-         dockerfile: ./.docker/Dockerfile
-         verbose: true
-         ignore: warning,info
-
  # Push & build 
    docker-build-and-push: 
-     needs: docker-test 
      runs-on: ubuntu-latest 
      steps: 
        - 
