@@ -62,7 +62,7 @@
            context: .
            file: Dockerfile
            push: true
-           build-args: arg1=lima
+           build-args: ENV_VARIABLE=lima
            tags: ${{ steps.metadata.outputs.tags }}-lima
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
@@ -74,7 +74,7 @@
            context: .
            file: Dockerfile
            push: true
-           build-args: arg1=tyrol
+           build-args: ENV_VARIABLE=tyrol
            tags: ${{ steps.metadata.outputs.tags }}-tyrol
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |
@@ -86,7 +86,7 @@
            context: .
            file: Dockerfile
            push: true
-           build-args: arg1=prod
+           build-args: ENV_VARIABLE=prod
            tags: ${{ steps.metadata.outputs.tags }}-prod
            labels: ${{ steps.metadata.outputs.labels }}
            ssh: |

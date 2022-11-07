@@ -12,10 +12,12 @@ COPY app/spec ./spec
 COPY app/src ./src
 
 # Run tests to validate app
+ARG ENV_VARIABLE
 FROM app-base AS test
 RUN apk add --no-cache python3 g++ make
 RUN yarn install
 RUN yarn test
+RUN echo ENV_VARIABLE
 
 # Clear out the node_modules and create the zip
 FROM app-base AS app-zip-creator
