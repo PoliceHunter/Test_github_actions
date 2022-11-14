@@ -17,8 +17,7 @@
      tags:
        - 'v*' 
   
- jobs: 
-  
+ jobs:  
  # Push & build 
    docker-build-and-push: 
      runs-on: ubuntu-latest 
